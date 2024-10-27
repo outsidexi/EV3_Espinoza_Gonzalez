@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes de Tiempo Libre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; 
+        }
+        .container {
+            margin-top: 20px; 
+        }
+        h2 {
+            margin-bottom: 20px; 
+        }
+        .table th {
+            background-color: #007bff; 
+            color: white; 
+        }
+        .table td {
+            vertical-align: middle; 
+        }
+        .navbar-brand {
+            font-weight: bold; 
+        }
+        .btn-approve {
+            background-color: #28a745; 
+            color: white;
+        }
+        .btn-reject {
+            background-color: #dc3545; 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Gestión de Horas</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'panel_control' %}">Panel de Control</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'solicitudes_pendientes' %}">Solicitudes Pendientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'exportar' %}">Exportar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Solicitudes de Tiempo Libre</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Empleado</th>
+                        <th scope="col">Motivo</th>
+                        <th scope="col">Fecha Inicio</th>
+                        <th scope="col">Fecha Fin</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paulina Donoso</td>
+                        <td>Vacaciones</td>
+                        <td>2024-07-15</td>
+                        <td>2024-07-20</td>
+                        <td class="text-center">
+                            <button class="btn btn-approve">Aprobar</button>
+                            <button class="btn btn-reject">Rechazar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rexy Kotcho</td>
+                        <td>Asunto Personal</td>
+                        <td>2024-08-01</td>
+                        <td>2024-08-03</td>
+                        <td class="text-center">
+                            <button class="btn btn-approve">Aprobar</button>
+                            <button class="btn btn-reject">Rechazar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Magna Tello</td>
+                        <td>Exámenes</td>
+                        <td>2024-08-10</td>
+                        <td>2024-08-15</td>
+                        <td class="text-center">
+                            <button class="btn btn-approve">Aprobar</button>
+                            <button class="btn btn-reject">Rechazar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; 
+        }
+        .container {
+            margin-top: 20px; 
+        }
+        h2 {
+            margin-bottom: 20px; 
+        }
+        .navbar-brand {
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Gestión de Horas</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'panel_control' %}">Panel de Control</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'solicitudes_pendientes' %}">Solicitudes Pendientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'exportar' %}">Exportar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Exportar Datos del Trabajador</h2>
+        <form method="POST" action="#">
+            <div class="mb-3">
+                <label for="trabajador_rut" class="form-label">Seleccionar Trabajador (por RUT)</label>
+                <select class="form-select" id="trabajador_rut" name="trabajador_rut" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="12345678-9">Paulina Donoso</option>
+                    <option value="98765432-1">Rexy Kotcho</option>
+                    <option value="12345678-0">Magna Tello</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+                <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_fin" class="form-label">Fecha Fin</label>
+                <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
+            </div>
+            <div class="mb-3">
+                <label for="formato_exportacion" class="form-label">Formato de Exportación</label>
+                <select class="form-select" id="formato_exportacion" name="formato_exportacion" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="pdf">PDF</option>
+                    <option value="excel">Excel</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">EXPORTAR</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

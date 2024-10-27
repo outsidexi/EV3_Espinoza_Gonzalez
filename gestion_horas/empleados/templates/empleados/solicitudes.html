@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Tiempo Libre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Gestión de Horas</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registrar' %}">Registrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'tabla_registros' %}">Tabla de Registros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'solicitudes' %}">Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout/">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Solicitar Tiempo Libre</h2>
+        <form method="POST" action="{% url 'enviar_solicitud' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="rut" class="form-label">RUT</label>
+                <input type="text" class="form-control" id="rut" name="rut" required>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_inicio" class="form-label">Fecha de Inicio</label>
+                <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_fin" class="form-label">Fecha de Fin</label>
+                <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
+            </div>
+            <div class="mb-3">
+                <label for="motivo" class="form-label">Motivo</label>
+                <textarea class="form-control" id="motivo" name="motivo" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+        </form>
+    </div>
+
+</body>
+</html>
